@@ -18,6 +18,7 @@ puts "あなたの手:#{jankens[my_hand]}, プログラムの手:#{jankens[pc_ha
 puts"------------------------------" 
 
   win = (my_hand == 0 && pc_hand == 1) || (my_hand == 1 && pc_hand == 2) || (my_hand == 2 && pc_hand == 0)
+  _lose = (my_hand == 0 && pc_hand == 2) || (my_hand == 1 && pc_hand == 0) || (my_hand == 2 && pc_hand == 1) 
   draw = my_hand == pc_hand
   fin = my_hand == 3
   
@@ -33,14 +34,13 @@ puts"------------------------------"
    
   elsif win
     puts "やったね！"
-    acchimuite_hoi
     @janken_judge = "win"
-    
-      
-  else 
-    puts "残念。負けちゃった。"
     acchimuite_hoi
+    
+  else
+    puts "残念。負けちゃった。"
     @janken_judge = "lose"
+    acchimuite_hoi
     
   end
 end
@@ -79,4 +79,3 @@ next_game = true
 while next_game do
   next_game = janken
 end
-
